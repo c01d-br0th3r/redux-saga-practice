@@ -23,15 +23,15 @@ const App = () => {
             <img src={i.urls.small} />
           </div>
         ))}
-        <button
-          className="btn"
-          onClick={() => {
-            dispatch(allActions.imageActions.loadImages());
-          }}
-        >
-          Load More
-        </button>
       </section>
+      <button
+        className="btn"
+        onClick={() => {
+          dispatch(allActions.imageActions.loadImages());
+        }}
+      >
+        Load More
+      </button>
     </div>
   );
 };
