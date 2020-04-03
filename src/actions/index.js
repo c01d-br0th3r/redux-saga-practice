@@ -1,7 +1,7 @@
 import counterActions from "./counterActions";
 import userActions from "./userActions";
 import popularMoviesActions from "./popularActions";
-import imageActions from "./imageAction";
+import imageActions from "./imageActions";
 
 const allActions = {
   counterActions,
