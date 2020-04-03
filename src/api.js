@@ -6,4 +6,10 @@ const getMovies = () => {
   );
 };
 
-export default getMovies;
+const getImages = () => {
+  return axios.get(
+    `https://api.unsplash.com/photos/?client_id=VxNmofr-6FIbpK-Pdm417wXsZsqcOFfEs9psRzIcZ3g`
+  );
+};
+
+export default { getMovies, getImages };
