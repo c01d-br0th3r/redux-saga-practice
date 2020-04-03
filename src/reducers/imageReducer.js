@@ -3,7 +3,7 @@ const images = (state = [], action) => {
     case "LOAD_IMAGES":
       return [...state];
     case "LOAD_IMAGES_SUCCESS":
-      return [...state, action.images];
+      return [...state, ...action.images];
     case "LOAD_IMAGES_FAIL":
       return [...state, action.error];
     default:

@@ -7,7 +7,7 @@ const loadImages = () => {
 const loadImagesSuccess = imgs => {
   return {
     type: "LOAD_IMAGES_SUCCESS",
-    images: img
+    images: imgs
   };
 };
 

@@ -1,10 +1,18 @@
 import { takeEvery, put, call } from "redux-saga/effects";
 import allActions from "../actions";
 import axios from "axios";
-import getMovies from "../api";
+import api from "../api";
 
 function* workerSaga() {
-  console.log("Hello worker!");
+  console.log("Hello, worker!");
+  try {
+    const { data } = yield call(api.getImages);
+    console.log(data);
+    yield put(allActions.imageActions.loadImagesSuccess(data));
+  } catch (error) {
+    yield put(allActions.imageActions.loadImagesFail(error));
+  }
+  /*console.log("Hello worker!");
   try {
     const {
       data: { results }
@@ -12,7 +20,7 @@ function* workerSaga() {
     console.log(results);
     yield put(allActions.popularMoviesActions.saveFetchPopular(results));
   } catch (error) {
-    /*try {
+    try {
     const {
       data: { results }
     } = yield axios.get(
@@ -20,12 +28,12 @@ function* workerSaga() {
     );
     console.log(results);
     yield put(allActions.popularMoviesActions.saveFetchPopular(results));
-  }*/ yield error;
-  }
+  } yield error;
+  }*/
 }
 
 function* rootSaga() {
-  yield takeEvery("FETCH_POPULAR", workerSaga);
+  yield takeEvery("LOAD_IMAGES", workerSaga);
 }
 
 export default rootSaga;
